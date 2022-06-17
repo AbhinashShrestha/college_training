@@ -7,7 +7,7 @@ def binary_search(to_find,start,end):
         return "Not in the array"
     middle=(start+end)//2
     if sorted_array[middle]==to_find:
-        return "{sorted_array[middle]} was found"
+        return f"{sorted_array[middle]} was found"#fsrings are used to format strings
     if sorted_array[middle]>to_find:
         return binary_search(to_find,start,middle-1)
     if sorted_array[middle]<to_find:
