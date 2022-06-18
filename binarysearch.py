@@ -1,5 +1,5 @@
 sorted_array=[1,2,3,4,5,6,7,8,9,10]
-target_element=3
+target_element=12
 first=0
 last=len(sorted_array)-1
 def binary_search(to_find,start,end):
