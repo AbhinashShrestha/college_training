@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LAPTOP COMPARISON</title>
+</head>
+<body>
+
+<h1>"Laptop 2022"</h1>
+<table>
+    <tr>
+      <th>Company</th>
+      <th>Model</th>
+      <th>Price</th>
+      <th>RAM</th>
+      <th>CPU</th>
+    </tr>
+    {% for laptop in laptops %}
+    <tr>
+      <td>{{laptop.manufacture}}</td>
+      <td>{{latop.name}}</td>
+      <td>{{latop.price}}</td>
+      <td>{{laptop.ram}}</td>
+      <td>{{laptop.cpu}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+</body>
+</html>
