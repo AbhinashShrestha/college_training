@@ -1,3 +1,4 @@
+from re import template
 from django.shortcuts import render
 from django.views.generic import ListView,TemplateView,DeleteView,UpdateView,DetailView
 
@@ -6,5 +7,5 @@ from BetterDevice.models import Laptop
 
 class LaptopListView(ListView):
     model=Laptop
-    BetterDevice='BetterDevice/laptop-list.httml'
-    context_object_name='laptop'
+    template_name='BetterDevice/laptop-list.html'
+    context_object_name='laptops'
