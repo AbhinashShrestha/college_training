@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from Devices.models import Laptop
 
@@ -9,3 +9,8 @@ def index(request):
         'laptops':laptop_list
     }
     return render(request,'Devices/laptop-list.html',laptops)#'app_name/file.html'
+
+def delete(request,id):
+    del_obj=Laptop.objects.get(id=id)
+    del_obj.delete()
+    return redirect('index')

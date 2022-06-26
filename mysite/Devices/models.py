@@ -8,5 +8,6 @@ class Laptop(models.Model):
     gpu=models.CharField(max_length=20,null=True,blank=True)
     cpu=models.CharField(max_length=20,null=True,blank=True)
     price=models.DecimalField(max_digits=50,decimal_places=2,null=True,blank=True)
-def _str_(self):
-    return(self.name)
+    
+    def __str__(self):#now the name of the laptop will be shown 
+        return(self.name)
