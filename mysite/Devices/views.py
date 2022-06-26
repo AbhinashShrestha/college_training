@@ -1,5 +1,5 @@
-from pyexpat import model
-from unicodedata import name
+# from pyexpat import model
+# from unicodedata import name
 from django.shortcuts import redirect, render
 
 from Devices.models import Laptop
@@ -29,5 +29,27 @@ def create(request):
         return redirect('index')
     else:
         return render(request, 'Devices/laptop-create.html')
-        
-        
+
+def update(request, id):
+    obj = Laptop.objects.get(id=id)
+    queryset={
+    'queryset':obj
+    }
+    if request.method == "POST":
+        model = request.POST['model']
+        manufacture = request.POST['manufacture']
+        cpu = request.POST['cpu']
+        gpu = request.POST['gpu']
+        ram = request.POST['ram']
+        price = request.POST['price']
+        obj.name=model
+        obj.manufacture=manufacture
+        obj.cpu=cpu
+        obj.gpu=gpu
+        obj.ram=ram
+        obj.price=price
+        obj.save()
+        return redirect('index')
+    else:
+        return render(request,'Devices/laptop-update.html', queryset)
+                
