@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Updating</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" 
+integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">   
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <div>
+        <form action="{% url 'update' queryset.id %}" method="post">
+        {% csrf_token %}
+        <div class="row">
+        <div class="col">
+        <label for="model">Model Name</label>
+        <input type="text" class="form-control" name="model" value="{{queryset.name}}">
+        </div>
+        <div class="col">
+        <label for="manufacture">Manufacturer</label>
+        <input type="text" class="form-control" name="manufacture" value="{{queryset.manufacture}}">
+        </div>
+        </div>
+        <div class="row">
+        <div class="col">
+        <label for="gpu">GPU</label>
+        <input type="text" class="form-control" name="gpu" value="{{queryset.gpu}}">
+        </div>
+        <div class="col">
+        <label for="cpu">CPU</label>
+        <input type="text" class="form-control" name="cpu" value="{{queryset.cpu}}">
+        </div>
+        </div>
+        <div class="row">
+        <div class="col">
+        <label for="ram">RAM</label>
+        <input type="text" class="form-control" name="ram" value="{{queryset.ram}}">
+        </div>
+        <div class="col">
+        <label for="price">Price</label>
+        <input type="text" class="form-control" name="price" value="{{queryset.price}}">
+        </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Update</button>
+        </form>
+        <a href="{% url 'index' %}">Back</a>
+        </div>
+
+</body>
+</html>
