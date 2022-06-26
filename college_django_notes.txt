@@ -1,0 +1,49 @@
+Know what mvc is 
+Know what mvt is
+Main date types
+String 
+Integer
+Float
+Range
+List 
+Tuple
+Dictionary
+Set
+
+
+
+How to create a virtual environment and make git ignore a file/folder
+Step 1: python3 -m venv env_name(go to a folder you want to work on)
+Step 2: . my_env_name/bin/activate(go to the folder where there is my_env folder)
+Step 3: Install things you want
+Step 4: set up git ignore
+Step 5: touch .gitignore
+Step 6: nano .gitignore
+Step 6: add the name of the folder you want to ignore
+Step 7: use cmd x to exit
+
+CRUD:
+Import Book.models import Book
+//create
+b=Book.objects.create(author="Eichiro ODA",book_name="One Piece")
+//update
+a=Book.objects.get(id=2)
+a.author="GODA"
+a.save()
+//delete
+a=Book.objects.get(id=3)
+a.delete()
+//fetch all
+a=Book.objects.all()
+a//shows all things that are in there
+//filter
+Book.objects.filter(author="Eichiro ODA")
+
+
+
+// 
+MVT = MODEL VIEW TEMPLATE
+model=database
+view=logic
+template=html render
+
