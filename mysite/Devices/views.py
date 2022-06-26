@@ -1,3 +1,5 @@
+from pyexpat import model
+from unicodedata import name
 from django.shortcuts import redirect, render
 
 from Devices.models import Laptop
@@ -16,11 +18,16 @@ def delete(request,id):
     return redirect('index')
 def create(request):
     if request.method=="POST":
-        name=request.POST["name"]
+        model=request.POST["model"]
         manufacture=request.POST["manufacture"]
         cpu=request.POST["cpu"]
         gpu=request.POST["gpu"]
         ram=request.POST["ram"]
         price=request.POST["price"]
-    
-    
+        laptop = Laptop(name=model,manufacture=manufacture,cpu=cpu,gpu=gpu,ram=ram,price=price)
+        laptop.save()
+        return redirect('index')
+    else:
+        return render(request, 'Devices/laptop-create.html')
+        
+        
