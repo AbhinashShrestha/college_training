@@ -1,3 +1,4 @@
+{% load crispy_forms_tags%}
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,9 @@ integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3Ah
 <div>
     <form method="post">
         {% csrf_token %}
-        {{ formcrispy }}
-        <button type="submit"
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-sucess">
+            Add
+        </button>
 </body>
 </html>

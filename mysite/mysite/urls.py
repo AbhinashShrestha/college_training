@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-# from Devices import views
+# from BetterDevice import views
 
 
 urlpatterns = [
