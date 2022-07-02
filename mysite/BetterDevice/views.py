@@ -32,3 +32,5 @@ class LaptopDeleteView(DeleteView):
     model=Laptop
     template_name='BetterDevice/laptop-delete.html'
     success_url=reverse_lazy('laptop-list')
+
+# class LaptopDetailView: do in home
