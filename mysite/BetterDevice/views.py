@@ -28,3 +28,7 @@ class LaptopUpdateView(UpdateView):
     context_object_name='laptops'
     fields=['manufacture','name','ram','gpu','cpu','price']
     success_url=reverse_lazy('laptop-list')
+class LaptopDeleteView(DeleteView):
+    model=Laptop
+    template_name='BetterDevice/laptop-delete.html'
+    success_url=reverse_lazy('laptop-list')
