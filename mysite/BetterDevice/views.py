@@ -10,9 +10,9 @@ class LaptopListView(ListView):
     context_object_name='laptops'
     
     def get_context_data(self,*args ,**kwargs):
-        laptop=self.get_queryset()#laptop is name of model
-        paginator=Paginator(laptop,5)
+        laptops=self.get_queryset()#laptop is name of model
+        paginator=Paginator(laptops,5)
         page_number=self.request.GET.get('page')
         page_obj=paginator.get_page(page_number)
-        context={'laptop':page_obj}
+        context={'laptops':page_obj}
         return context
