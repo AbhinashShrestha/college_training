@@ -13,7 +13,7 @@ class LaptopListView(ListView):
     
     def get_context_data(self,*args ,**kwargs):
         laptops=self.get_queryset()#laptop is name of model
-        paginator=Paginator(laptops,7)
+        paginator=Paginator(laptops,3)
         page_number=self.request.GET.get('page')
         page_obj=paginator.get_page(page_number)
         context={'laptops':page_obj}
@@ -25,6 +25,6 @@ class LaptopCreateView(CreateView):
 class LaptopUpdateView(UpdateView):
     model=Laptop
     template_name='BetterDevice/laptop-update.html'
-    context_object_name='laptop'
+    context_object_name='laptops'
     fields=['manufacture','name','ram','gpu','cpu','price']
     success_url=reverse_lazy('laptop-list')
