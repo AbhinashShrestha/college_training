@@ -8,5 +8,8 @@ integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3Ah
 </head>
 <div>
     <form method="post">
+        {% csrf_token %}
+        {{ formcrispy }}
+        <button type="submit"
 </body>
 </html>
