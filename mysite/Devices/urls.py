@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 # from Devices import views
-from BetterDevice import views
+from Devices import views
 
 urlpatterns = [
     # function base path
