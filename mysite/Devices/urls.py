@@ -5,7 +5,6 @@ from Devices import views
 
 urlpatterns = [
     # function base path
-    path('admin/', admin.site.urls),
     path('',views.index,name='index'),
     path('delete/<int:id>',views.delete,name='delete'),
     path('create',views.create,name='create'),
