@@ -22,3 +22,9 @@ class LaptopCreateView(CreateView):
     form_class=LaptopRegistration
     template_name='BetterDevice/laptop-create.html'
     success_url=reverse_lazy('laptop-list')
+class LaptopUpdateView(UpdateView):
+    model=Laptop
+    template_name='BetterDevice/laptop-update.html'
+    context_object_name='laptop'
+    fields=['manufacture','name','ram','gpu','cpu','price']
+    success_url=reverse_lazy('laptop-list')
