@@ -7,7 +7,7 @@ from django.contrib.auth.forms import AuthenticationForm,PasswordResetForm
 def register(request):
     if request.method =="POST":
         form=RegisterForm(request.POST)
-        # import ipdb;ipdb.set_trace() for debug
+        # import ipdb;ipdb.set_trace() for debug only
         if form.is_valid():
             form.save()
             username=form.cleaned_data.get('username')
