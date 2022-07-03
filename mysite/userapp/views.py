@@ -2,11 +2,11 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate,login,logout
 from userapp.forms import RegisterForm
 from django.contrib import messages
-import ipdb;ipdb.set_trace()
 # Create your views here.
 def register(request):
     if request.method =="POST":
         form=RegisterForm(request.POST)
+        import ipdb;ipdb.set_trace()
         if form.is_valid():
             form.save()
             username=form.cleaned_data.get('username')
