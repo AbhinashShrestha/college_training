@@ -1,0 +1,26 @@
+{% load crispy_forms_tags%}
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<div class="row">
+    <div class="col">
+        {{form.password1|as_crispy_field}}
+    </div>
+    <div class="col">
+        {{form.password2|as_crispy_field}}
+    </div>
+
+</div>
+<button type="submit" class="btn btn-success">Register</button>
+</form>
+<p>Have an account? <a href="{% url 'user_login' %}">Login</a></p>
+</div>
+
+
+</div>
+</body>
+</html>
