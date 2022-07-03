@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate,login,logout
 from userapp.forms import RegisterForm
 from django.contrib import messages
-from django.contrib.auth.forms import AuthenticationForm,PasswordResetForm
+from django.contrib.auth.forms import AuthenticationForm
 # Create your views here.
 def register(request):
     if request.method =="POST":
