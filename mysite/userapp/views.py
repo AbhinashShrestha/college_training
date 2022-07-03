@@ -20,6 +20,7 @@ def register(request):
         form=RegisterForm()
     context={"form":form}
     return render(request,'userapp/register.html',context)
+
 def user_login(request):
     if request.method=='POST':
         form=AuthenticationForm(request,data=request.POST)
