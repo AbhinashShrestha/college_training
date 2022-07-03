@@ -22,15 +22,15 @@
         <div class="col">
         {{form.email|as_crispy_field}}
         </div>
-<div class="row">
-    <div class="col">
-        {{form.password1|as_crispy_field}}
-    </div>
-    <div class="col">
-        {{form.password2|as_crispy_field}}
-    </div>
+    <div class="row">
+        <div class="col">
+            {{form.password1|as_crispy_field}}
+        </div>
+        <div class="col">
+            {{form.password2|as_crispy_field}}
+        </div>
 
-</div>
+    </div>
 <button type="submit" class="btn btn-success">Register</button>
 </form>
 {% comment %} <p>Have an account? <a href="{% url 'user_login' %}">Login</a></p> {% endcomment %}
