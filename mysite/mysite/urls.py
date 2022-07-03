@@ -23,5 +23,5 @@ urlpatterns = [
     # path('',views.index,name='index'),
     path('function_laptops/',include('Devices.urls')),
     path('class_laptops/',include('BetterDevice.urls')),#this needs to be placed in urls in browser 
-    path('',include('userapp.urls'))
+    path('',include('userapp.urls')),
 ]
