@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate,login,lagout
 from userapp.forms import RegisterForm
+from django.contrib import messages
 
 # Create your views here.
 def register(request):
