@@ -19,6 +19,7 @@
       <th>Price</th>
       <th>RAM</th>
       <th>CPU</th>
+      <th>GPU</th>
     </tr>
     {% for laptop in laptops %}
     <tr>
@@ -27,6 +28,7 @@
       <td>{{laptop.price}}</td>
       <td>{{laptop.ram}}</td>
       <td>{{laptop.cpu}}</td>
+      <td>{{laptop.gpu}}</td>
       <td>
       <a href="{% url 'delete' laptop.id %}"
       onclick="return confirm('Are you sure you want to delete this item?');"><i class="bi bi-trash-fill" aria-hidden="true"></i></a>
