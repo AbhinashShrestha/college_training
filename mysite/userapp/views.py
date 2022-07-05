@@ -67,7 +67,7 @@ def password_reset_request(request):
                     email_template_name = "userapp/password_reset_email.txt"
                     c = {
                         "email":user.email,
-                        'domain':'127.0.0.1:8060',
+                        'domain':'127.0.0.1:8000',
                         'site_name': 'Website',
                         "uid": urlsafe_base64_encode(force_bytes(user.pk)),
                         "user": user,
