@@ -10,7 +10,7 @@
 <body>
 
 <h1>"Laptop 2022"</h1>
-{% comment %} <button class="btn btn-sucess"><a href="{% url 'create' %}" style="text-decoration:none;color:green;">Add Laptops</a></button> {% endcomment %}
+<button class="btn btn-sucess"><a href="{% url 'create' %}" style="text-decoration:none;color:green;">Add Laptops</a></button>
 
 <table>
     <tr>
@@ -19,6 +19,7 @@
       <th>Price</th>
       <th>RAM</th>
       <th>CPU</th>
+      <th>GPU</th>
     </tr>
     {% for laptop in laptops %}
     <tr>
@@ -27,6 +28,7 @@
       <td>{{laptop.price}}</td>
       <td>{{laptop.ram}}</td>
       <td>{{laptop.cpu}}</td>
+      <td>{{laptop.gpu}}</td>
 
       <td>
       <a href="{% url 'laptop-update' laptop.id %}">
