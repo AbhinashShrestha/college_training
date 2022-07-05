@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.contrib.auth import views as auth_views
 # from BetterDevice import views
 
 
@@ -23,5 +24,9 @@ urlpatterns = [
     # path('',views.index,name='index'),
     path('function_laptops/',include('Devices.urls')),
     path('class_laptops/',include('BetterDevice.urls')),#this needs to be placed in urls in browser 
+    #below is for authentication
     path('',include('userapp.urls')),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='userapp/password_reset_done.html'), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="userapp/password_reset_confirm.html"), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='userapp/password_reset_complete.html'), name='password_reset_complete'),
 ]
