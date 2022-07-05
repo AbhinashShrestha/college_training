@@ -49,33 +49,40 @@ def user_login(request):
     return render(request,'userapp/login.html',{'form':form})
 
 
+def user_logout(request):
+    logout(request)
+    messages.info(request,"Sucessfully logged out")
+    return redirect('register')
+
+
 def password_reset_request(request):
     if request.method == "POST":
         password_reset_form = PasswordResetForm(request.POST)
-    if password_reset_form.is_valid():
-        data = password_reset_form.cleaned_data['email']
-        associated_users = User.objects.filter(Q(email=data))
-    if associated_users.exists():
-        for user in associated_users:
-            subject = "Password Reset Requested"
-            email_template_name = "usermanagement/password_reset_email.txt"
-            c = {
-            "email":user.email,
-            'domain':'127.0.0.1:8000',
-            'site_name': 'Website',
-            "uid": urlsafe_base64_encode(force_bytes(user.pk)),
-            "user": user,
-            'token': default_token_generator.make_token(user),
-            'protocol': 'http',
-            }
-            email = render_to_string(email_template_name, c)
-            try:
-                send_mail(subject, email, 'djangoe061@gmail.com' , [user.email], fail_silently=False)#my email from which email is sent
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-        messages.success(request, 'A message with reset password instructions has been sent to your inbox.')
-        return redirect ("/")
-        messages.error(request, 'An invalid email has been entered.')
-        password_reset_form = PasswordResetForm()
+        if password_reset_form.is_valid():
+            data = password_reset_form.cleaned_data['email']
+            associated_users = User.objects.filter(Q(email=data))
+            if associated_users.exists():
+                for user in associated_users:
+                    subject = "Password Reset Requested"
+                    email_template_name = "userapp/password_reset_email.txt"
+                    c = {
+                        "email":user.email,
+                        'domain':'127.0.0.1:8060',
+                        'site_name': 'Website',
+                        "uid": urlsafe_base64_encode(force_bytes(user.pk)),
+                        "user": user,
+                        'token': default_token_generator.make_token(user),
+                        'protocol': 'http',
+                    }
+                    email = render_to_string(email_template_name, c)
+                    try:
+                        send_mail(subject, email, 'djangoe061@gmail.com' , [user.email], fail_silently=False)#my email from which email is sent
+                        return redirect ("login")#url name 
+                    except BadHeaderError:
+                        return HttpResponse('Invalid header found.')
+                    # messages.success(request, 'A message with reset password instructions has been sent to your inbox.')
+                    
+                # messages.error(request, 'An invalid email has been entered.')
+    password_reset_form = PasswordResetForm()
 
-        return render(request=request, template_name="userapp/password_reset_form.html", context={"password_reset_form":password_reset_form})
+    return render(request=request, template_name="userapp/password_reset_form.html", context={"password_reset_form":password_reset_form})
