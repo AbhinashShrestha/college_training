@@ -76,7 +76,7 @@ def password_reset_request(request):
                     }
                     email = render_to_string(email_template_name, c)
                     try:
-                        send_mail(subject, email, 'djangoe061@gmail.com' , [user.email], fail_silently=False)#my email from which email is sent
+                        send_mail(subject, email, settings.EMAIL_HOST_USER , [user.email], fail_silently=False)#my email from which email is sent
                         return redirect ("login")#url name 
                     except BadHeaderError:
                         return HttpResponse('Invalid header found.')
